@@ -1,0 +1,357 @@
+<h1 id="jd-2036-slider-range-card">JD 2036 Slider Range Card</h1>
+<p>A fully customizable dual-handle range slider for Home Assistant
+Lovelace.</p>
+<p>Built on top of noUiSlider, this card allows you to control two
+<code>input_number</code> entities (Min / Max) with a clean, theme-aware
+and highly configurable interface.</p>
+<p>Supports horizontal and vertical layouts, percent sizing inside the
+card, auto vertical height, full color customization and fine handle
+alignment.</p>
+<p>Provides granular color control for every slider component. If color
+options are omitted, the card gracefully falls back to the active Home
+Assistant theme variables.</p>
+<hr />
+<h1 id="preview">Preview</h1>
+<h2 id="horizontal-embedded-in-stack">Horizontal (Embedded in
+Stack)</h2>
+<figure>
+<img src="docs/images/horizontal-stack.png"
+alt="Horizontal Embedded Example" />
+<figcaption aria-hidden="true">Horizontal Embedded Example</figcaption>
+</figure>
+<p>Works correctly inside:</p>
+<ul>
+<li>vertical-stack-in-card</li>
+<li>horizontal-stack</li>
+<li>layout-card</li>
+<li>grid layouts</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">type</span><span class="kw">:</span><span class="at"> custom:vertical-stack-in-card</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cards</span><span class="kw">:</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">type</span><span class="kw">:</span><span class="at"> custom:jd2036-slider-range-card</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Example</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">orientation</span><span class="kw">:</span><span class="at"> horizontal</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">entity_min</span><span class="kw">:</span><span class="at"> input_number.x1</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">entity_max</span><span class="kw">:</span><span class="at"> input_number.x2</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">min</span><span class="kw">:</span><span class="at"> </span><span class="dv">-10</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">max</span><span class="kw">:</span><span class="at"> </span><span class="dv">20</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">step</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.1</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">unit</span><span class="kw">:</span><span class="at"> °C</span></span></code></pre></div>
+<hr />
+<h2 id="horizontal-how-to-use-slider_pct_vertical">Horizontal (How to
+use slider_pct_vertical)</h2>
+<figure>
+<img src="docs/images/pct-vertical.png"
+alt="Horizontal Embedded Example" />
+<figcaption aria-hidden="true">Horizontal Embedded Example</figcaption>
+</figure>
+<p>Works correctly inside:</p>
+<ul>
+<li>layout-card</li>
+<li>grid layouts</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">type</span><span class="kw">:</span><span class="at"> custom:layout-card</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">layout_type</span><span class="kw">:</span><span class="at"> custom:grid-layout</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span><span class="kw">:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">grid-template-columns</span><span class="kw">:</span><span class="at"> 1fr 6fr</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">grid-template-rows</span><span class="kw">:</span><span class="at"> 300px</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cards</span><span class="kw">:</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">type</span><span class="kw">:</span><span class="at"> custom:jd2036-slider-range-card</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">orientation</span><span class="kw">:</span><span class="at"> vertical</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">entity_min</span><span class="kw">:</span><span class="at"> input_number.y1</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">max</span><span class="kw">:</span><span class="at"> </span><span class="dv">55</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">min</span><span class="kw">:</span><span class="at"> </span><span class="dv">20</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">entity_max</span><span class="kw">:</span><span class="at"> input_number.y2</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">vertical_height</span><span class="kw">:</span><span class="at"> auto</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">slider_pct_vertical</span><span class="kw">:</span><span class="at"> </span><span class="dv">50</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">type</span><span class="kw">:</span><span class="at"> entities</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">entities</span><span class="kw">:</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> sensor.time</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> sensor.date_time</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> sensor.temperatura_media_casa</span></span></code></pre></div>
+<hr />
+<h2 id="vertical-example">Vertical Example</h2>
+<figure>
+<img src="docs/images/vertical-example.png"
+alt="Vertical Embedded Example" />
+<figcaption aria-hidden="true">Vertical Embedded Example</figcaption>
+</figure>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">type</span><span class="kw">:</span><span class="at"> custom:jd2036-slider-range-card</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> °C Flow</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">orientation</span><span class="kw">:</span><span class="at"> vertical</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">entity_min</span><span class="kw">:</span><span class="at"> input_number.y1</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">entity_max</span><span class="kw">:</span><span class="at"> input_number.y2</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span><span class="kw">:</span><span class="at"> </span><span class="dv">20</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span><span class="kw">:</span><span class="at"> </span><span class="dv">55</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">step</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.1</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">unit</span><span class="kw">:</span><span class="at"> °C</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">vertical_height_max</span><span class="kw">:</span><span class="at"> </span><span class="dv">300</span><span class="co">   #required to not stretch out of the card!!! adjust this value</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">slider_pct_vertical</span><span class="kw">:</span><span class="at"> </span><span class="dv">80</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">handle_x_offset_vertical</span><span class="kw">:</span><span class="at"> </span><span class="dv">6</span></span></code></pre></div>
+<hr />
+<h2 id="color-customization">Color Customization</h2>
+<figure>
+<img src="docs/images/colors.png" alt="Color Example" />
+<figcaption aria-hidden="true">Color Example</figcaption>
+</figure>
+<p>All color options support:</p>
+<ul>
+<li>Hex (#00bcd4)</li>
+<li>RGB (rgb(0,122,255))</li>
+<li>RGBA</li>
+<li>CSS variables (var(–primary-color))</li>
+</ul>
+<p>Available color parameters:</p>
+<ul>
+<li>color_base</li>
+<li>color_track</li>
+<li>color_connect</li>
+<li>color_handle</li>
+<li>color_text</li>
+</ul>
+<h3 id="transparent-example">Transparent Example</h3>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">type</span><span class="kw">:</span><span class="at"> custom:jd2036-slider-range-card</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">entity_min</span><span class="kw">:</span><span class="at"> input_number.x1</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">entity_max</span><span class="kw">:</span><span class="at"> input_number.x2</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">color_base</span><span class="kw">:</span><span class="at"> transparent</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">color_track</span><span class="kw">:</span><span class="at"> transparent</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">color_connect</span><span class="kw">:</span><span class="at"> rgb(0, 122, 255)</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">color_handle</span><span class="kw">:</span><span class="at"> orange</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">color_text</span><span class="kw">:</span><span class="at"> red</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">slider_pct_horizontal</span><span class="kw">:</span><span class="at"> </span><span class="dv">70</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">handle_y_offset_horizontal</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span></code></pre></div>
+<hr />
+<h1 id="features">Features</h1>
+<ul>
+<li>Dual-handle range slider (Min &amp; Max)</li>
+<li>Horizontal and Vertical orientation</li>
+<li>Auto vertical height with safe fallback</li>
+<li>Adjustable percent sizing inside the card</li>
+<li>Custom handle dimensions</li>
+<li>Fine alignment offsets:
+<ul>
+<li>handle_y_offset_horizontal</li>
+<li>handle_x_offset_vertical</li>
+</ul></li>
+<li>Full color customization</li>
+<li>Works inside stacked cards</li>
+<li>Smooth visual updates during drag</li>
+<li>Writes values to Home Assistant on release</li>
+</ul>
+<hr />
+<h1 id="installation">Installation</h1>
+<h2 id="manual-installation">Manual Installation</h2>
+<ol type="1">
+<li>Copy the file:</li>
+</ol>
+<p>/##YOUR_CUSTOM_COMMUNITY_FOLDER##/jd2036-slider-range-card.js</p>
+<ol start="2" type="1">
+<li>Add resource:</li>
+</ol>
+<p>Settings → Dashboards → Resources</p>
+<p>URL:</p>
+<p>/##YOUR_CUSTOM_COMMUNITY_FOLDER##/jd2036-slider-range-card.js?v=1</p>
+<p>Type:</p>
+<p>JavaScript Module</p>
+<ol start="3" type="1">
+<li>Reload browser (clear cache if needed).</li>
+</ol>
+<hr />
+<h1 id="configuration-reference">Configuration Reference</h1>
+<h2 id="required-parameters">Required Parameters</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Option</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">entity_min</td>
+<td style="text-align: left;">Entity ID for minimum value #(min: in
+general options)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">entity_max</td>
+<td style="text-align: left;">Entity ID for maximum value #(min: in
+general options)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="general-options">General Options</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Option</th>
+<th style="text-align: left;">Default</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">“Range Slider”</td>
+<td style="text-align: left;">Card title</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">decimals</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Decimal precision</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">orientation</td>
+<td style="text-align: left;">“horizontal”</td>
+<td style="text-align: left;">horizontal or vertical</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">min</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">Slider minimum value</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">max</td>
+<td style="text-align: left;">100</td>
+<td style="text-align: left;">Slider maximum value</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">step</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Step increment</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">unit</td>
+<td style="text-align: left;">%</td>
+<td style="text-align: left;">Unit displayed next to values</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">thickness</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">Slider track thickness (px)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="percent-sizing">Percent Sizing</h2>
+<table style="width:98%;">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 17%" />
+<col style="width: 21%" />
+<col style="width: 29%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Option</th>
+<th style="text-align: left;">Range</th>
+<th style="text-align: left;">Default</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">slider_pct_horizontal</td>
+<td style="text-align: left;">1–100</td>
+<td style="text-align: left;">100</td>
+<td style="text-align: left;">Width percentage when horizontal</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">slider_pct_vertical</td>
+<td style="text-align: left;">1–100</td>
+<td style="text-align: left;">100</td>
+<td style="text-align: left;">Height percentage when vertical</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="vertical-height-control">Vertical Height Control</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Option</th>
+<th style="text-align: left;">Default</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">vertical_height</td>
+<td style="text-align: left;">“auto”</td>
+<td style="text-align: left;">Fixed height or auto mode</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">vertical_height_min</td>
+<td style="text-align: left;">30</td>
+<td style="text-align: left;">Minimum vertical height</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">vertical_height_max</td>
+<td style="text-align: left;">1000</td>
+<td style="text-align: left;">Maximum vertical height</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="handle-customization">Handle Customization</h2>
+<h3 id="size">Size</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Option</th>
+<th style="text-align: left;">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">handle_width</td>
+<td style="text-align: left;">14</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">handle_height</td>
+<td style="text-align: left;">14</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">handle_border</td>
+<td style="text-align: left;">2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="handle-orientation-specific-overrides">Handle
+orientation-specific overrides:</h2>
+<ul>
+<li>handle_width_horizontal</li>
+<li>handle_height_horizontal</li>
+<li>handle_width_vertical</li>
+<li>handle_height_vertical</li>
+</ul>
+<hr />
+<h2 id="handle-offsets">Handle Offsets</h2>
+<h3 id="horizontal">Horizontal</h3>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">handle_y_offset_horizontal</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span><span class="co"> #pixels up</span></span></code></pre></div>
+<p>Positive → moves handle down<br />
+Negative → moves handle up</p>
+<p>Default: 2px</p>
+<hr />
+<h3 id="vertical">Vertical</h3>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">handle_x_offset_vertical</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span><span class="co"> #pixels to the side </span></span></code></pre></div>
+<p>Positive → moves handle right<br />
+Negative → moves handle left</p>
+<p>Default: 0px</p>
+<hr />
+<h1 id="behavior">Behavior</h1>
+<ul>
+<li>Values update visually while dragging</li>
+<li>Values are written to Home Assistant on release</li>
+<li>Vertical mode uses RTL internally for natural interaction</li>
+</ul>
+<hr />
+<h1 id="license">License</h1>
+<p>This project is licensed under the MIT License. See the LICENSE file
+for details.</p>
